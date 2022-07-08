@@ -1,0 +1,959 @@
+/* COMMON */
+body {
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  font-family: "Nanum Gothic", sans-serif;
+  height: 3000px;
+  /* 폰트 링크 가져와야됨 */
+}
+
+.inner {
+  position: relative;
+  width: 1100px;
+  margin: 0 auto;
+}
+a {
+  text-decoration: none;
+}
+.strong {
+  font-weight: 800;
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 20px;
+  box-sizing: border-box;
+  /* 패딩이 오니까 박스사이징 해줘야함 */
+  border: 2px solid currentColor;
+  /* currentColor q부모가 가진 컬러값 가져오는 것 */
+  border-radius: 5px;
+}
+
+.btn--reverse {
+  background-color: #00704a;
+  border-color: #00704a;
+  color: white;
+}
+
+.btn--reverse:hover {
+  text-decoration: underline;
+}
+
+.btn--white {
+  border-color: white;
+  color: white;
+}
+
+.btn--white:hover {
+  text-decoration: underline;
+}
+
+.btn--light_green {
+  border-color: #00704a;
+  color: #00704a;
+  transition: 0.4s;
+}
+
+.btn--light_green:hover {
+  color: white;
+  background-color: #00704a;
+  text-decoration: underline;
+  /* 왔디깄디 힐 때 호버 먹이고 싶으면 .btn--light_green자체에 trandision주기, '왔다' 할때만 효과 주고싶으면 hover에 주기  */
+}
+
+/* 이거 뭐냐!!!! 자세히보기 html 수정해야함
+.btn--dark_green {
+  background-color: #1c3831;
+  color: white;
+  text-decoration: underline;
+}
+
+.btn--dark_green:hover {
+} */
+
+.btn--gold {
+  border-color: #b9813e;
+  color: #b9813e;
+  transition: 0.4s;
+}
+
+.btn--gold:hover {
+  background-color: #b9813e;
+  color: white;
+}
+
+.btn--white {
+  transition: 0.4s;
+}
+
+.btn--white:hover {
+  background-color: white;
+  color: black;
+}
+
+.btn--black {
+  color: black;
+  border-color: black;
+}
+
+.btn--black:hover {
+  color: white;
+  background-color: black;
+}
+
+/* HEADER */
+
+header {
+  background-color: #f6f5ef;
+  border: 1px solid #c8c8c8;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+}
+
+header > .inner {
+  background-color: #f6f5ef;
+  height: 120px;
+}
+
+header .inner a.logo {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  /* right: 0; */
+  margin: auto;
+  /* margin: auto 0; 이면 상하(수직 정렬) 좌우 */
+  height: 75px;
+  width: 75px;
+  /* lf rt 값 둘다 주면 양쪽으로 마진을 주라는 뜻 */
+}
+/* a인데 클래스가 logo인 애 */
+
+header .inner .logo img {
+  display: block;
+  /* 왜??????????????? 다시생각해보자 */
+}
+
+header .inner .sub_menu {
+  display: flex;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+header .inner .sub_menu .menu {
+  display: flex;
+
+  /* display: flex; 가로 정렬하겠다는 뜻 */
+}
+
+header .inner .sub_menu .menu li {
+  line-height: 32px;
+  /* 글자 줄높이 줘서 중앙으로 끄집어내림 */
+}
+
+header .inner .sub_menu .menu li a {
+  font-size: 12px;
+  color: #656565;
+  padding: 10px 15px;
+  text-decoration: none;
+}
+
+header .inner .sub_menu .menu li a:hover {
+  text-decoration: underline;
+}
+
+header .inner .sub_menu .menu li:not(:last-child)::after {
+  content: "|";
+  font-size: 12px;
+  color: #c8c8c8;
+  /* 가상요소선택자는 :: 두개임 */
+  /* li:not(:last-child)::after 마지막(find a store) 애는 뒤에 | 없애겠다는 의미 */
+}
+header .inner .search {
+}
+
+header .inner .search input {
+  width: 40px;
+  height: 34px;
+  transition: 0.4s;
+  font-size: 16px;
+  padding: 0 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+  /* 박스값만큼 보더 생김 */
+
+  /* 도형박스 */
+}
+header .inner .search input:focus {
+  width: 180px;
+  outline-color: green;
+  /* #1e3932; */
+  /* java안쓰고 focus 쓸거임 */
+}
+
+header .inner .search span {
+  position: absolute;
+  font-size: 24px;
+  height: 24px;
+  top: 0;
+  bottom: 0;
+  right: 3px;
+  margin: auto;
+  /* 박스안에 돋보기 넣기 */
+}
+
+/* <!-- MAIN MENU  --> */
+/* 이너 안에 있음!!!  */
+
+header .inner .main_menu {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+header .inner .main_menu .item {
+}
+
+header .inner .main_menu .item .item__name {
+  padding: 10px 20px 34px 20px;
+  font-size: 13px;
+}
+
+header .inner .main_menu .item:hover .item__name {
+  background-color: #2c2a29;
+  color: #669900;
+  text-decoration: underline;
+  cursor: pointer;
+  /* 글자 박스 내려가면 계속 호버 먹히니까 아이템에 호버 주겠다 */
+}
+
+header .inner .main_menu .item .item__contents {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  display: none;
+  /* 위드쓰 가로 100퍼 주면 부모기준으로 되니까 레프트 0줘야 전체가 됨 */
+}
+
+header .inner .main_menu .item:hover .item__contents {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  display: block;
+}
+
+header .inner .main_menu .item:hover .item__contents .item__contents__menu {
+  background-color: #2c2a29;
+  /* height: 200px;
+  transition: 1s; */
+  padding: 20px 0px;
+  width: 100%;
+}
+
+header .main_menu .item .item__contents__menu {
+}
+
+/* 여기부터 다시, 블랙 박스 부분 */
+
+header .main_menu .item .item__contents__menu .inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  /* justify-content: center; */
+  font-size: 12px;
+  /* 각 li에 플렉스를 주고 싶으니까 부모요소인 inner에 flex를 줘야함 */
+}
+
+header .main_menu .item .item__contents__menu .inner > li {
+  width: 200px;
+  padding-right: 20px;
+  /* 전체박스에 패딩 위아래20줬고, 이너박스에 플렉스 랩 주고, li에 오른쪽 마진20줌  */
+}
+
+header .main_menu .item .item__contents__menu .inner > li > a {
+  color: white;
+  font-style: bold;
+  text-decoration: none;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+header .main_menu .item .item__contents__menu .inner > li > a:hover {
+  text-decoration: underline;
+}
+
+header .main_menu .item .item__contents__menu .inner > li > ul {
+}
+
+header .main_menu .item .item__contents__menu .inner > li > ul > li {
+  color: #999;
+  font: 12px;
+  margin: 5px 0;
+}
+
+header .main_menu .item .item__contents__menu .inner > li > ul > li:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+header .inner .main_menu .item .item__contents .item__contents__additional {
+  background-image: url("./images/main_menu_pattern.jpg");
+  background-repeat: repeat;
+  /* background-color: #1c1b1a; */
+  /* 왜 안나와 배경!!!!!!!!!!!!!!!!!!!!!!!! */
+  height: 100px;
+  width: 100%;
+  padding: 20px 0;
+}
+
+header
+  .inner
+  .main_menu
+  .item
+  .item__contents
+  .item__contents__additional
+  .inner {
+}
+
+header
+  .inner
+  .main_menu
+  .item
+  .item__contents
+  .item__contents__additional
+  .inner
+  > a {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+header
+  .inner
+  .main_menu
+  .item
+  .item__contents
+  .item__contents__additional
+  .inner
+  > a:hover {
+  text-decoration: underline;
+}
+
+header
+  .inner
+  .main_menu
+  .item
+  .item__contents
+  .item__contents__additional
+  .inner
+  > p {
+  font-size: 12px;
+  color: #669900;
+}
+
+/* BADGES  */
+header .badges {
+  position: absolute;
+  top: 150px;
+  right: 20px;
+}
+
+header .badges > a {
+}
+
+header .badges > a > img {
+}
+
+/* VISUAL */
+
+.visual {
+  background-image: url(./images/visual_bg.jpeg);
+  background-repeat: no-repeat;
+  width: 100%;
+  margin-top: 120px;
+  background-position: center;
+  /* margin: 0 auto; */
+}
+.visual .inner {
+  /* 이너에 기준점이 될거니까 미리 위치 선언해주는것 */
+  position: relative;
+  height: 646px;
+}
+.visual .inner .slogan {
+  position: absolute;
+  top: 88px;
+  opacity: 0;
+  transition: 0.4s;
+  /* 호버할때 나타나게 하려고 오파시티를 0으로 주는것 */
+}
+.visual .inner .slogan > img {
+}
+.visual .inner .slogan > a.btn {
+  display: block;
+  border: 2px solid #1c3831;
+  border-radius: 3px;
+  width: 130px;
+  height: 38px;
+  box-sizing: border-box;
+  /* 박스 만들려면 display: block 해야함 */
+  text-align: center;
+  line-height: 38px;
+  /* 라인하이트는 하이트값과 동일하게 줌 */
+  color: #1c3831;
+  text-decoration: none;
+  margin-top: 30px;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.visual .inner .slogan > .btn:hover {
+  color: white;
+  background-color: #1c3831;
+  text-decoration: underline;
+  font-weight: bold;
+  /* 자세히보기 호버 왜 안되는지???????????????????????????????????????????????? */
+}
+
+.visual .inner .image {
+  position: absolute;
+}
+
+.visual .inner .image.item_1 {
+  width: 260px;
+  right: 210px;
+  top: 80px;
+  opacity: 0;
+  transition: 0.4s;
+}
+/* .visual .inner .image.item_1 (.)을안띄어쓰는 건 얘만 부르겠단 의미 */
+.visual .inner .image.item_2 {
+  width: 590px;
+  left: 30px;
+  top: 200px;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.visual .inner .image.item_3 {
+  width: 370px;
+  bottom: 50px;
+  right: -120px;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.visual .inner:hover .image.item_1 {
+  opacity: 1;
+  transition-delay: 0.4s;
+  /* 동시에 나타나면 안되니까 딜레이 주는 것 */
+}
+
+.visual .inner:hover .image.item_2 {
+  opacity: 1;
+  transition-delay: 0.8s;
+}
+
+.visual .inner:hover .image.item_3 {
+  opacity: 1;
+  transition-delay: 1.2s;
+}
+
+.visual .inner:hover .slogan {
+  opacity: 1;
+}
+
+.visual .inner:hover .slogan .btn {
+  opacity: 1;
+  transition-delay: 1.6s;
+}
+
+/* NOTICE */
+.notice {
+}
+
+.notice .notice_line {
+  position: relative;
+}
+
+.notice .notice_line .bg_left {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  /* absolute 하면 top과 bottom이 세트 */
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: black;
+}
+
+.notice .notice_line .bg_right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  /* absolute 하면 top과 bottom이 세트 */
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #f6f5ef;
+}
+
+.notice .notice_line .inner {
+  height: 62px;
+  display: flex;
+}
+
+.notice .notice_line .inner .inner__left {
+  position: relative;
+  width: 60%;
+  height: 100%;
+  background-color: #111111;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+.notice .notice_line .inner .inner__left h1 {
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.notice .notice_line .inner .inner__left .swiper_container {
+  position: absolute;
+  left: 80px;
+  flex-grow: 1;
+  font-size: 14;
+}
+.notice .notice_line .inner .inner__left a {
+  position: absolute;
+  right: 20px;
+  color: white;
+}
+
+.notice .notice_line .inner .inner__left a span {
+  font-size: 36px;
+  vertical-align: bottom;
+}
+
+.notice .notice_line .inner .inner__right {
+  position: relative;
+  width: 60%;
+  height: 100%;
+  background-color: #f6f5ef;
+  display: flex;
+  align-items: center;
+  color: #111111;
+}
+
+.notice .notice_line .inner .inner__right h1 {
+  position: absolute;
+  right: 180px;
+  font-weight: bold;
+  /* margin: auto; */
+  /* 포지션 값 고정주고 px 값 조정해주면됨 */
+}
+.notice .notice_line .inner .inner__right a {
+  position: absolute;
+  right: 60px;
+  color: #111111;
+  /* a태그는 링크태그라 색깔따로 지정해줘야함. 따라오지 않음 */
+}
+
+.notice .notice_line .inner .inner__right a span {
+  font-size: 36px;
+  vertical-align: bottom;
+  /* vertical-align 기본이 베이스라인으로 되어있어서 바텀줘야 수직정렬됨. */
+}
+
+/* REWARDS */
+
+.rewards {
+  background-color: #1e3932;
+}
+
+.rewards .inner {
+  /* position: relative;는 이미 위(inner)에 선언했기 때문에 안씀 */
+  padding: 30px 0 40px 0;
+  display: flex;
+  gap: 20px;
+  /* flex속성사용할때 마진 말고 gap쓰면 간격 줄 수 있다 */
+}
+
+.rewards .inner > a {
+}
+/* 밑에 a태그 있기때문에 직계자손을 의미하는 > 넣는게 안전함 */
+.rewards .inner > a > img {
+  width: 176px;
+  display: block;
+}
+
+.rewards .inner .rewards__items {
+  flex-grow: 1;
+}
+
+.rewards .inner .rewards__items .rewards__items__register {
+  position: relative;
+  /* 컴퓨터가 알아서 이너 남는 공간 만큼 채워지게 함. 더 알아볼 것 */
+  box-shadow: 0 0.5px;
+  /* 밑줄 얄쌍하게 하고싶으면 border-bottom: 1px: 대신 쓸 수 있음 */
+  padding-bottom: 12px;
+  /* padding: 0 0 12px 0;  위랑 같은 거*/
+}
+
+.rewards .inner .rewards__items .rewards__items__register p {
+  display: block;
+  font-size: 17px;
+  color: white;
+}
+
+.rewards .inner .rewards__items .rewards__items__register p.subject {
+  font-size: 26px;
+  margin-bottom: 10px;
+
+  /* 왜 안먹냐 이거?????????????????????????? */
+  /* p .subject 아니고 p.subject 이거임! 띄어쓰기 ㄴㄴ   */
+
+  /* 스타벅스만의 특별한 혜택, 스타벅스 리워드제목 부분임. 밑에 간격을 줌 */
+}
+.rewards .inner .rewards__items .rewards__items__register .buttons {
+  position: absolute;
+  right: 0;
+  bottom: 12px;
+}
+
+.rewards .inner .rewards__items .rewards__items__card {
+  position: relative;
+  padding-top: 20px;
+}
+
+.rewards .inner .rewards__items .rewards__items__card p {
+  padding-top: 20px;
+  font-size: 14px;
+  color: white;
+}
+
+.rewards .inner .rewards__items .rewards__items__card .buttons {
+  position: absolute;
+  right: 0;
+  top: 20px;
+}
+
+/* PERU */
+
+.peru {
+  position: relative;
+  /* relative주는 이유?? .peru::before 위치 줄려고 */
+  background-image: url("./images/peru_bg.jpg");
+  height: 570px;
+  overflow: hidden;
+  /* 드래그가 안되면 백그라운드임. 드래그 되면 이미지임. */
+}
+
+.peru::before {
+  /* 가상요소선택자 */
+  content: "";
+  /* 공란이라도 줘야함 */
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: block;
+  /* block해서 크기 요소 먹게할 것 */
+  background-image: url("./images/peru_bg_left.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 400px;
+  height: 480px;
+}
+
+.peru::after {
+  /*호랑이 그림. 가상요소선택자 */
+  content: "";
+  /* 공란이라도 줘야함 */
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: block;
+  /* block해서 크기 요소 먹게할 것 */
+  background-image: url("./images/peru_bg_right.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 400px;
+  height: 480px;
+  /* 사이즈는 해상도마다 다르니 이쁜 걸로 크기 조정 가능 */
+}
+
+.peru .inner {
+  /* common에 relitive줬기 때문에 포지션 안줘도 됨 */
+  height: inherit;
+  background-color: rebeccapurple;
+}
+
+.peru .inner .img_product {
+  display: block;
+  position: absolute;
+  width: 310px;
+  top: 100px;
+  left: 250px;
+  transform: translate(-500px, 0);
+  /* peru음료병 움직이는 효과 */
+  transition: 2.5s;
+  /* img두개니까 > 직계라고 써도 됨 */
+}
+
+.peru .inner:active .img_product {
+  transform: translate(0px, 0);
+  opacity: 1;
+}
+
+.peru .inner .peru__contents {
+  /* 디브라 디스플레이 안해도 됨 */
+  position: absolute;
+  top: 160px;
+  right: 100px;
+  transform: translate(500px, 0);
+  transition: 2.5s;
+  opacity: 1;
+  z-index: 1;
+}
+
+.peru .inner:active .peru__contents {
+  transform: translate(0px, 0);
+  opacity: 1;
+}
+
+.peru .inner .peru__contents > img {
+  width: 427px;
+  /* 시원한 여름과어울리는 ~~ 텍스트 이미지 */
+}
+
+.peru .inner .peru__contents .btn {
+  display: block;
+  width: 125px;
+  margin-top: 10px;
+}
+
+/* INDINESIA */
+.indonesia {
+  position: relative;
+  /* relative주는 이유?? indonesia__img랑indonesia__tittle 위치 줄려고 */
+  background-image: url("./images/indonesia_bg.jpg");
+  height: 400px;
+  overflow: hidden;
+  /* overflow: hidden; */
+  /* 드래그가 안되면 백그라운드임. 드래그 되면 이미지임. */
+}
+
+.indonesia::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-image: url("./images/indonesia_bg_left.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 373px;
+  height: 277px;
+}
+
+.indonesia::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: -200px;
+  background-image: url("./images/indonesia_bg_right.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 563px;
+  height: 305px;
+}
+
+.indonesia .inner {
+}
+
+.indonesia .inner .indonesia__img {
+  position: absolute;
+  /* left: px; */
+  right: -600px;
+}
+
+.indonesia .inner .indonesia__tittle {
+  position: absolute;
+  top: 120px;
+  /* width: 496px;
+  height: 115px; */
+  left: 200px;
+}
+
+.indonesia .inner .btn {
+  position: absolute;
+  width: 125px;
+  margin-top: 10px;
+  top: 300px;
+  left: 200px;
+}
+
+/* FAVORITE */
+.favorite {
+  background-image: url("./images/fav_bg.jpg");
+  height: 800px;
+  background-attachment: fixed;
+  /* background-attachment백그라운드에 붙이겠다는 뜻 */
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.favorite .inner {
+  height: inherit;
+}
+
+.favorite .inner .fav__tittle_1 {
+  position: absolute;
+  /* width: 258px; */
+  top: 120px;
+  left: 108px;
+  transform: translate(-600px, 0);
+  transition: 1.5s;
+  opacity: 1;
+}
+
+.favorite .inner .fav__tittle_2 {
+  position: absolute;
+  /* width: 326px; */
+  top: 370px;
+  transform: translate(-600px, 0);
+  transition: 1s;
+  opacity: 1;
+}
+
+.favorite .inner .fav__img {
+  position: absolute;
+  top: 200px;
+  right: 0px;
+}
+
+.favorite .inner .btn {
+  position: absolute;
+  top: 650px;
+  right: 800px;
+}
+
+.favorite .inner:hover .btn {
+  opacity: 1;
+}
+
+.favorite .inner:hover .fav__tittle_1,
+.favorite .inner:hover .fav__tittle_2 {
+  transform: translate(0px, 0);
+  opacity: 1;
+}
+
+/* MAGAGINE */
+.magazine {
+  background-image: url(./images/magazine_bg.png);
+  height: 400px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.magazine .inner {
+  height: inherit;
+}
+
+.magazine .inner .magazine__tittle {
+  position: absolute;
+  top: 150px;
+  left: 10px;
+  display: block;
+}
+
+.magazine .inner .magazine__img {
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  transition: 0.4s;
+  opacity: 0;
+}
+
+.magazine .inner:hover .magazine__img {
+  opacity: 1;
+}
+
+.magazine .inner .btn {
+  position: absolute;
+  bottom: 50px;
+  left: 250px;
+}
+
+/* STORE */
+
+.store {
+}
+
+.store .inner {
+}
+
+.store .inner .store__img_2 {
+}
+
+.store .inner .store__img_1 {
+}
+
+.store .inner .store__img_3 {
+}
+
+.store .inner .store__img_4 {
+}
+
+.store .inner .btn {
+}
+
+/* FOOTER */
+
+.footer {
+  background-color: #2c2a29;
+  height: 500px;
+}
+.footer .inner {
+}
+
+.footer a {
+  color: white;
+}
+.footer .inner .footer__menu {
+  display: flex;
+  justify-content: space-around;
+  padding: 50px;
+  box-sizing: border-box;
+}
+
+.footer .inner .footer__menu > a {
+}
+
+.footer .inner .footer__menu > li {
+}
+
+.footer .inner .footer__menu > li > a {
+}
+
+.footer .inner .footer__menu > li > ul > a {
+  display: block;
+  padding: 10px 0;
+
+  /* a가 원래 인라인요소인데 인라인요소는 글자 패딩이 안먹히고 백그라운드 만 먹힘 그래서 인라인블럭을 설정해줘야함 */
+}
+
+.copyright__list {
+  display: flex;
+}
